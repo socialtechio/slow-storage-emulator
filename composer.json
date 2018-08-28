@@ -1,0 +1,19 @@
+{
+    "name": "socialtechio/slow-storage-emulator",
+    "description": "Slow storage emulator",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Yuriy Prokopets",
+            "email": "yuriy.prokopets@victoriabrides.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+      "php" : "^7.1"
+    },
+    "autoload": {
+        "classmap": ["src/"]
+    }
+}
