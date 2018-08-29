@@ -7,15 +7,21 @@ class SlowStorage implements StorageInterface
     /**
      * @inheritdoc
      */
-    public function store(string $path, string $content)
+    public function store(string $path, string $content): void
     {
-        if (!is_writable($path)) {
-            throw new \InvalidArgumentException(sprintf('File "%s" not writable', $path));
-        }
+        sleep(5); // simulation of slowness
 
-        sleep(5); // slow emulation
+        file_put_contents($path, $content, LOCK_EX);
+    }
 
-        file_put_contents($path, $content);
+    /**
+     * @inheritdoc
+     */
+    public function append(string $path, string $content): void
+    {
+        sleep(5); // simulation of slowness
+
+        file_put_contents($path, $content, FILE_APPEND | LOCK_EX);
     }
 
     /**
